@@ -48,7 +48,7 @@ function ResponsiveAppBar({ page }) {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#1f2937' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
@@ -96,9 +96,9 @@ function ResponsiveAppBar({ page }) {
                   sx={{
                     color: item.current ? 'white' : 'inherit',
                     textTransform: 'none',
-                    backgroundColor: item.current ? '#3f51b5' : 'transparent',
+                    backgroundColor: item.current ? '#1a202c' : 'transparent',
                     '&:hover': {
-                      backgroundColor: item.current ? '#3f51b5' : '#303f9f',
+                      backgroundColor: item.current ? '#1a202c' : '#303f9f',
                       color: 'white',
                     },
                     margin: '5px',
@@ -119,9 +119,9 @@ function ResponsiveAppBar({ page }) {
                   sx={{
                     color: item.current ? 'white' : 'inherit',
                     textTransform: 'none',
-                    backgroundColor: item.current ? '#3f51b5' : 'transparent',
+                    backgroundColor: item.current ? '#1a202c' : 'transparent',
                     '&:hover': {
-                      backgroundColor: item.current ? '#3f51b5' : '#303f9f',
+                      backgroundColor: item.current ? '#1a202c' : '#303f9f',
                       color: 'white',
                     },
                     margin: '5px',
