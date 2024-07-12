@@ -15,7 +15,7 @@ function MenuCard(props) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       if (props.link === navLinks[i].link) {
         navLinks[i].current = true;
       }

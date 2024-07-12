@@ -17,7 +17,7 @@ export default function Footer() {
         setValue('');
     };
 
-    const handleChange = (newValue) => {
+    const handleChange = (event, newValue) => {
         setValue(newValue);
 
         switch (newValue) {
@@ -34,40 +34,45 @@ export default function Footer() {
                 break;
         }
     };
-  
+
     return (
         <Box
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '10vh', 
+                width: '100%',
+                height: '10vh',
+                backgroundColor: '#1f2937'
             }}
-            className="bg-gray-800"
         >
-            <BottomNavigation sx={{ width: 500, backgroundColor: '#1f2937' }} value={value} onChange={handleChange}>
+            <BottomNavigation 
+                sx={{ width: '100%', backgroundColor: '#1f2937' }} 
+                value={value} 
+                onChange={handleChange}
+            >
                 <BottomNavigationAction
-                label="sos_camp13"
-                value="instagram"
-                icon={<InstagramIcon sx={{ color: value === 'instagram' ? 'secondary' : 'white' }}/>}
-                onMouseEnter={() => handleMouseEnter('instagram')}
-                onMouseLeave={handleMouseLeave}
+                    label="sos_camp13"
+                    value="instagram"
+                    icon={<InstagramIcon sx={{ color: value === 'instagram' ? '#4287f5' : 'white' }}/>}
+                    onMouseEnter={() => handleMouseEnter('instagram')}
+                    onMouseLeave={handleMouseLeave}
                 />
                 <BottomNavigationAction
-                label="บ้านน้อนske22"
-                value="discord"
-                icon={<DiscordIcon sx={{ color: value === 'discord' ? 'secondary' : 'white' }}/>}
-                onMouseEnter={() => handleMouseEnter('discord')}
-                onMouseLeave={handleMouseLeave}
+                    label="บ้านน้อนske22"
+                    value="discord"
+                    icon={<DiscordIcon sx={{ color: value === 'discord' ? '#4287f5' : 'white' }}/>}
+                    onMouseEnter={() => handleMouseEnter('discord')}
+                    onMouseLeave={handleMouseLeave}
                 />
                 <BottomNavigationAction
-                label="SOS13"
-                value="github"
-                icon={<GitHubIcon sx={{ color: value === 'github' ? 'secondary' : 'white' }}/>}
-                onMouseEnter={() => handleMouseEnter('github')}
-                onMouseLeave={handleMouseLeave}
+                    label="SOS13"
+                    value="github"
+                    icon={<GitHubIcon sx={{ color: value === 'github' ? '#4287f5' : 'white' }}/>}
+                    onMouseEnter={() => handleMouseEnter('github')}
+                    onMouseLeave={handleMouseLeave}
                 />
             </BottomNavigation>
         </Box>
     );
-  }
+}

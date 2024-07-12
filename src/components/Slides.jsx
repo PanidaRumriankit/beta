@@ -18,17 +18,22 @@ function CreateSlides(props) {
                     alignItems: 'center'
                 },
                 '&:hover': {
-                    color: '#4287f5'
+                    color: '#4287f5',
+                    'span': {
+                        color: '#4287f5',
+                    }
                 },
                 fontWeight: 'bold',
                 a: {
-                    color: 'inherit',
                     textDecoration: 'none',
                     width: '100%',
                     height: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
+                },
+                span: {
+                    color: '#0d365e',
                 }
             }}
         >
