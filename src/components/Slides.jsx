@@ -8,22 +8,21 @@ function CreateSlides(props) {
             sx={{
                 '&.MuiButton-outlined': {
                     borderWidth: '2px',
-                    color: 'inherit', // inherit color to keep it consistent
-                    textTransform: 'none', // prevent text from becoming uppercase
-                    padding: '8px 16px', // adjust padding as needed
-                    display: 'inline-flex', // keep it inline with link
-                    alignItems: 'center' // center align items
+                    color: 'inherit',
+                    padding: '8px 16px',
+                    display: 'inline-flex',
+                    alignItems: 'center'
                 },
                 '&:hover': {
                     color: '#4287f5'
                 },
                 fontWeight: 'bold',
                 a: {
-                    color: 'inherit', // inherit color from button
-                    textDecoration: 'none', // remove underline from link
-                    width: '100%', // ensure full width clickable
+                    color: '#0d365e', 
+                    textDecoration: 'none',
+                    width: '100%',
                     height: '100%',
-                    display: 'flex', // use flex to center content
+                    display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
                 }
