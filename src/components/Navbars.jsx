@@ -13,8 +13,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = [ navLinks[0].name, navLinks[1].name, navLinks[2].name, navLinks[3].name ]
-
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
