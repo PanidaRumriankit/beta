@@ -1,18 +1,111 @@
 import { navLinks } from "../constants/index";
 import logo from "../assets/logo.png";
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel
-} from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
+
+const pages = [ navLinks[0].name, navLinks[1].name, navLinks[2].name, navLinks[3].name ]
+
+export default function ResponsiveAppBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
+
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <img
+              className="h-8 w-auto cursor-pointer"
+              src={logo}
+              alt="logo"
+              onClick={handleLogoClick}
+            />
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {navLinks.map((item) => (
+                <MenuItem key={item.name} onClick={() => { handleCloseNavMenu(); navigate(item.link); }}>
+                  <Typography textAlign="center">{item.name}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+            <img
+                className="h-8 w-auto cursor-pointer"
+                src={logo}
+                alt="logo"
+                onClick={handleLogoClick}
+              />
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {navLinks.map((item) => (
+              <Button
+                key={item.name}
+                onClick={() => navigate(item.link)}
+                sx={{ my: 2, color: 'white', display: 'block', fontWeight: item.current ? 'bold' : 'normal' }}
+              >
+                {item.name}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbars(page) {
+function Navbars(page) {
   console.log("Navbars page:", page);
 
   for (let i = 0; i < 3; i++) {

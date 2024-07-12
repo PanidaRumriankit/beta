@@ -21,8 +21,8 @@ function CreateSlides(props) {
                     color: '#4287f5'
                 },
                 fontWeight: 'bold',
-                color: '#0d365e',
                 a: {
+                    color: 'inherit',
                     textDecoration: 'none',
                     width: '100%',
                     height: '100%',
