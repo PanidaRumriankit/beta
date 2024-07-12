@@ -13,6 +13,8 @@ function classNames(...classes) {
 }
 
 export default function Navbars(page) {
+  console.log("Navbars page:", page);
+
   for (let i = 0; i < 3; i++) {
     if (page.page === navLinks[i].link) {
       navLinks[i].current = true;
@@ -24,7 +26,7 @@ export default function Navbars(page) {
   const handleLogoClick = () => {
     navigate("/");
   };
-  
+
   return (
     <Disclosure as="nav" className="bg-gray-800 fixed w-full z-50 top-0">
       {({ open }) => (
@@ -50,6 +52,8 @@ export default function Navbars(page) {
                     src={logo}
                     alt="logo"
                     onClick={handleLogoClick}
+                    width="10px"
+                    height="10px"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">

@@ -5,6 +5,10 @@ function CreateSlides(props) {
     return (
         <Button 
             variant="outlined" 
+            component="a"
+            href={props.link}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
                 '&.MuiButton-outlined': {
                     borderWidth: '2px',
@@ -28,13 +32,7 @@ function CreateSlides(props) {
                 }
             }}
         >
-            <a
-                href={props.link}
-                target="_blank"
-                rel="noopener noreferrer" // security improvement
-            >
-                <span>{props.name}</span>
-            </a>
+            <span>{props.name}</span>
         </Button>
     );
 }
