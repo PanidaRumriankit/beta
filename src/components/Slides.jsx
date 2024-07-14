@@ -33,7 +33,7 @@ function CreateSlides(props) {
                     justifyContent: 'center'
                 },
                 span: {
-                    color: '#0d365e',
+                    color: '#1a7dc4',
                 }
             }}
         >

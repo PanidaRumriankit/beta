@@ -3,35 +3,30 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { navLinks } from "../constants/index";
 import logo from "../assets/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+const navLinks = [
+  { name: "Problems", link: "/Problemspage", current: false },
+  // { name: "FAQ", link: "/FAQ", current: false },
+  { name: "Contacts", link: "/Contacts", current: false },
+];
 
-function ResponsiveAppBar({ page }) {
-  React.useEffect(() => {
-    for (let i = 0; i < 2; i++) {
-      if (page === navLinks[i].link) {
-        navLinks[i].current = true;
-      }
-    }
-  }, [page]);
-  
 
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [currentPath, setCurrentPath] = React.useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location.pathname]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -41,10 +36,14 @@ function ResponsiveAppBar({ page }) {
     setAnchorElNav(null);
   };
 
-  const navigate = useNavigate();
-
   const handleLogoClick = () => {
     navigate("/");
+  };
+
+  const handleNavLinkClick = (link) => {
+    setCurrentPath(link);
+    navigate(link);
+    handleCloseNavMenu();
   };
 
   return (
@@ -52,12 +51,34 @@ function ResponsiveAppBar({ page }) {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
-              className="h-8 w-auto cursor-pointer"
-              src={logo}
-              alt="logo"
-              onClick={handleLogoClick}
-              width="50px"
-            />
+            className="h-8 w-auto cursor-pointer"
+            src={logo}
+            alt="logo"
+            onClick={handleLogoClick}
+            width="50px"
+          />
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {navLinks.map((item) => (
+              <Button
+                key={item.name}
+                onClick={() => handleNavLinkClick(item.link)}
+                sx={{
+                  color: currentPath === item.link ? 'white' : 'inherit',
+                  textTransform: 'none',
+                  backgroundColor: currentPath === item.link ? '#1a202c' : 'transparent',
+                  '&:hover': {
+                    backgroundColor: currentPath === item.link ? '#1a202c' : '#303f9f',
+                    color: 'white',
+                  },
+                  margin: '5px',
+                  borderRadius: '5px',
+                }}
+              >
+                {item.name}
+              </Button>
+            ))}
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -75,12 +96,12 @@ function ResponsiveAppBar({ page }) {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -91,14 +112,13 @@ function ResponsiveAppBar({ page }) {
               {navLinks.map((item) => (
                 <Button
                   key={item.name}
-                  href={item.link}
-                  aria-current={item.current ? "page" : undefined}
+                  onClick={() => handleNavLinkClick(item.link)}
                   sx={{
-                    color: item.current ? 'white' : 'inherit',
+                    color: currentPath === item.link ? 'white' : 'inherit',
                     textTransform: 'none',
-                    backgroundColor: item.current ? '#1a202c' : 'transparent',
+                    backgroundColor: currentPath === item.link ? '#1a202c' : 'transparent',
                     '&:hover': {
-                      backgroundColor: item.current ? '#1a202c' : '#303f9f',
+                      backgroundColor: currentPath === item.link ? '#1a202c' : '#303f9f',
                       color: 'white',
                     },
                     margin: '5px',
@@ -110,31 +130,10 @@ function ResponsiveAppBar({ page }) {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {navLinks.map((item) => (
-              <Button
-                  key={item.name}
-                  href={item.link}
-                  aria-current={item.current ? "page" : undefined}
-                  sx={{
-                    color: item.current ? 'white' : 'inherit',
-                    textTransform: 'none',
-                    backgroundColor: item.current ? '#1a202c' : 'transparent',
-                    '&:hover': {
-                      backgroundColor: item.current ? '#1a202c' : '#303f9f',
-                      color: 'white',
-                    },
-                    margin: '5px',
-                    borderRadius: '5px',
-                  }}
-                >
-                  {item.name}
-                </Button>
-              ))}
-          </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
+
 export default ResponsiveAppBar;

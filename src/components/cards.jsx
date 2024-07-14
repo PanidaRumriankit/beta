@@ -98,7 +98,7 @@ function ProblemCard(props) {
         justifyContent: 'center', 
         alignItems: 'center', 
         flexGrow: 1,
-        paddingTop: 0,
+        paddingTop: 1,
       }}>
         <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', paddingBottom: 2 }}>
           {props.title}
@@ -115,7 +115,7 @@ function ProblemCard(props) {
           {props.describe}
         </Typography>
       </CardContent>
-      <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <CardActions sx={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 2, marginBottom: 2 }}>
         <Button size="small" color="primary" onClick={handleClick}>
           View
         </Button>
