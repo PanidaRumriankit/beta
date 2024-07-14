@@ -274,7 +274,7 @@ const navLinks = [
     },
   
     { title: "(Extra) Banana...again",
-      describe: "Develop a program that converts lists-strings.",
+      describe: "Improve your Day2 code.",
       day: 3,
       link: "https://elabsheet.org/elab/taskpads/show/yek5dl8eui/",
       img: "rubber.png.png",
