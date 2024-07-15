@@ -283,12 +283,20 @@ const navLinks = [
       id: 32
     },
   
+    { title: "(Extra) Banana...again",
+      describe: "Improve your Day2 code.",
+      day: 3,
+      link: "https://elabsheet.org/elab/taskpads/show/yek5dl8eui/",
+      img: "rubber.png.png",
+      id: 33
+    },
+  
     { title: "Banana Module Banana",
       describe: "Learn the basics of Python modules",
       day: 3,
       link: "https://elabsheet.org/elab/taskpads/show/fbud4i79vz/",
       img: "banana.png",
-      id: 33
+      id: 34
     },
   
     { title: "(Extra) The Shattered Veil",
@@ -296,7 +304,7 @@ const navLinks = [
       day: 3,
       link: "https://elabsheet.org/elab/taskpads/show/hz9ikrrrab/",
       img: "smileyichi.png",
-      id: 34
+      id: 35
     },
   
     { title: "(Extra) Final Confrontation: The Abyss Unleashed",
@@ -304,7 +312,7 @@ const navLinks = [
       day: 3,
       link: "https://elabsheet.org/elab/taskpads/show/xyl7u0sq38/",
       img: "christmasichi.png",
-      id: 35
+      id: 36
     },
   
     { title: "Impossibly impossible Challenge",
@@ -312,7 +320,7 @@ const navLinks = [
       day: 3,
       link: "http://bitly.com/98K8eH ",
       img: "workout.png",
-      id: 36
+      id: 37
     },
   
   ];
