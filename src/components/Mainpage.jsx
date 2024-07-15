@@ -89,7 +89,7 @@ export default function Mainpage() {
             justifyContent: "space-around", 
             flexDirection: "row", 
             alignItems: "center",
-            gap: "1rem"}}>
+            gap: "1.5rem"}}>
             {navLinks.map((item) => (
                 <MenuCard name={ item.name } link={ item.link } />
             ))}

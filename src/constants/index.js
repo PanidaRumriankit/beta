@@ -1,6 +1,7 @@
 const navLinks = [
     { name: "Problems", link: "/Problemspage", current: false },
     { name: "FAQ", link: "/FAQ", current: false },
+    { name: "Gacha", link: "/Gachapon", current: false },
     { name: "Contacts", link: "/Contacts", current: false },
   ];
   
@@ -9,6 +10,15 @@ const navLinks = [
     { name: "Day2", link: "https://www.canva.com/design/DAGH5yooEBg/5cEyLxrY9OUq_XJlUKOz9g/view?utm_content=DAGH5yooEBg&utm_campaign=designshare&utm_medium=link&utm_source=editor" },
     { name: "Day3", link: "https://www.canva.com/design/DAGIp5fK_ik/II51RqZy-BNtzVToBr0CBg/view?utm_content=DAGIp5fK_ik&utm_campaign=designshare&utm_medium=link&utm_source=editor" }
   ];
+
+  const gachacards = [
+    { id: 1,
+      title: 'Ichi finds a way to your home',
+      describe: 'Do not underestimate Ichi. He can literally find a way to your home. You better not complain about his problems.',
+      star: 5,
+      image: 'ichi.png',
+    }
+  ]
   
   const problems = [
     { title: "print()",
@@ -580,4 +590,4 @@ const navLinks = [
   elab_exercise_source_code;
   for_sos14;
   
-  export { navLinks, slides, problems };
+  export { navLinks, slides, problems, gachacards };

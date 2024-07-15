@@ -1,5 +1,5 @@
 const getImage = (imageName) => {
-    return new URL(`../assets/cardIMG/${imageName}`, import.meta.url).href;
+    return `${process.env.PUBLIC_URL}/assets/gacha!/${imageName}`;
 };
 
 export default getImage;

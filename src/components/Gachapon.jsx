@@ -1,140 +1,151 @@
 import React, { useState } from 'react';
-import './FAQ.css';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Container from '@mui/material/Container';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import { gachacards } from '../constants/index';
+import { Box, Button } from '@mui/material';
+import { GachaCard } from './cards';
+import IMAGES from '../assets/images';
 import Navbars from './Navbars';
 import Footer from './Footer';
-import Box from '@mui/material/Box';
-import starburst from '../assets/star_burst.mp4';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
+import './Gachapon.css';
 
-const faqItems = [
-  {
-    section: 'About SKE',
-    question: 'What is SKE?',
-    answer: 'Software and Knowledge Engineering or SKE (pronounce "ski") for short, is a branch in a Computer Engineering, Kasetsart University. Our branch is also a part of the international Undergraduate Program (IUP).'
-  },
-  {
-    section: 'About SKE',
-    question: 'What are the required courses for this branch?',
-    answer: 'For freshmen it is required to learn the general engineering courses such as "Engineering Mathematics I", "General Physics I" and "Physics Lab I". You will also need to apply for essential Computer Engineering courses such as, "Computer Programming I" and "Discrete Mathematics and Algebra". For Computer Programming I, you will get to learn the fundamentals of programming with Python. For Discrete Mathematics and Algebra, you will learn about the basic of discrete mathematics and algebra, which is essential for programming.'
-  },
-  {
-    section: 'About SKE',
-    question: 'Are the courses difficult?',
-    answer: 'The difficulty of each course varies on each learner, it depends on whether you have basics or not. You might need to adjust and may have to work harder than others, also try to learn by yourself and practice doing exercises.'
-  },
-  {
-    section: 'About SKE',
-    question: 'Is a computer required? What about specifications?',
-    answer: 'A computer is required though it is REALLY recommended to have a laptop. Portable computers will make your life easier and should always be taken to university. For Windows, you should pick a laptop with medium specs such as, Core i5 or Ryzen 5 CPU, 8GB RAM, 512 HDD. Make sure to get the latest generation of CPU to have faster performance. For Mac, it is recommended to get at least M1 CPU.'
-  },
-  {
-    section: 'About SKE',
-    question: 'When does the course start and what to prepare?',
-    answer: 'The first semester\'s start date is 5th August. Though there will be events before that day like SKE tutorial camp'
-  },
-  {
-    section: 'About SOS Camp',
-    question: 'What is SOS Camp?',
-    answer: 'SOS Camp is a preparation camp for freshmen to gain knowledge about programming. It is also a camp to help you prepare for the first semester. The camp will be held on 18th-21th July.'
-  },
-  {
-    section: 'About SOS Camp',
-    question: 'What programming languages will be covered in the camp?',
-    answer: 'This camp will cover Python.'
-  },
-  {
-    section: 'About SOS Camp',
-    question: 'Do I need prior programming experience to attend the camp?',
-    answer: 'No, you do not need any prior programming experience to attend the camp. The camp will start from the very basics of programming.'
-  },
-  {
-    section: 'Programming',
-    question: 'Will the camp cover both theoretical and practical aspects of programming?',
-    answer: 'Yes, the camp will cover both theoretical and practical aspects of programming. The camp will start with a lecture and then you will be given exercises to practice what you have learned.'
-  },
-  {
-    section: 'Programming',
-    question: 'Can I bring my own laptop or do I need to use university computers?',
-    answer: 'You can bring your own laptop. However, if you do not have a laptop, you can use the university computers.'
-  },
-  {
-    section: 'Programming',
-    question: 'What software do I need to install on my laptop?',
-    answer: 'You will need to install Python 3.9.6 and PyCharm Community Edition 2021.1.3.'
-  },
-  {
-    section: 'Ichi',
-    question: 'Ichi?',
-    answer: 'Ichi.'
-  }
-];
+function ResponsiveCarousel() {
+    const [autoPlay, setAutoPlay] = useState(true);
+    const [enlargedCard, setEnlargedCard] = useState(null);
 
-const FAQ = () => {
-  const [expanded, setExpanded] = useState(false);
+    // const toggleAutoPlay = () => {
+    //     setAutoPlay(!autoPlay);
+    // };
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+    const handleTestYourLuck = () => {
+        // Find the nearest card logic here
+        const nearestCardId = findNearestCard();
+        setAutoPlay(false);
+        setEnlargedCard(nearestCardId);
+    };
 
-  const current_page = "/FAQ";
+    const findNearestCard = () => {
+        // For simplicity, we just return the first card's id.
+        // In a real scenario, you would implement logic to find the actual nearest card
+        return problems[0].id;
+    };
 
-  const groupedFAQs = faqItems.reduce((groups, item) => {
-    (groups[item.section] = groups[item.section] || []).push(item);
-    return groups;
-  }, {});
+    const handleOverlayClick = () => {
+        setAutoPlay(true);
+        setEnlargedCard(null);
+    };
 
-  return (
-    <Box id="FAQ" className="pt-16">
-      <video autoPlay loop muted className="background-video">
-        <source src={starburst} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <Navbars page={current_page} />
-      <Container
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          pt: { xs: 4, sm: 8 },
-          pb: { xs: 4, sm: 8 },
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        <div className="wrapper">
-          <h1>Frequently Asked Questions</h1>
-          {Object.keys(groupedFAQs).map((section, sectionIndex) => (
-            <div key={sectionIndex}>
-              <h2>{section}</h2>
-              {groupedFAQs[section].map((item, index) => (
-                <Accordion
-                  key={index}
-                  expanded={expanded === `${section}-${index}`}
-                  onChange={handleChange(`${section}-${index}`)}
+    const current_page = "/Gachapon";
+
+    return (
+        <Box
+            id="gachapon"
+            sx={() => ({
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+            })}
+            className="pt-16"
+        >
+            <video
+                autoPlay
+                muted
+                loop
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    zIndex: -1
+                }}
+            >
+                <source src={IMAGES.starburst} type="video/mp4" />
+            </video>
+            <Navbars page={current_page} />
+            <Box sx={{ flex: '1 0 auto', padding: 5, margin: 2 }}>
+                <Carousel
+                    additionalTransfrom={0}
+                    arrows={false}
+                    autoPlay={autoPlay}
+                    autoPlaySpeed={1}
+                    centerMode={false}
+                    className=""
+                    containerClass="container-with-dots"
+                    customTransition="all 1s linear"
+                    dotListClass=""
+                    draggable
+                    focusOnSelect={false}
+                    infinite
+                    itemClass=""
+                    keyBoardControl
+                    minimumTouchDrag={80}
+                    pauseOnHover={false}
+                    renderArrowsWhenDisabled={false}
+                    renderButtonGroupOutside={false}
+                    renderDotsOutside={false}
+                    responsive={{
+                        desktop: {
+                            breakpoint: {
+                                max: 3000,
+                                min: 1024
+                            },
+                            items: 3,
+                            partialVisibilityGutter: 40
+                        },
+                        mobile: {
+                            breakpoint: {
+                                max: 464,
+                                min: 0
+                            },
+                            items: 1,
+                            partialVisibilityGutter: 30
+                        },
+                        tablet: {
+                            breakpoint: {
+                                max: 1024,
+                                min: 464
+                            },
+                            items: 2,
+                            partialVisibilityGutter: 30
+                        }
+                    }}
+                    rewind={false}
+                    rewindWithAnimation={false}
+                    rtl={false}
+                    shouldResetAutoplay
+                    showDots={false}
+                    sliderClass=""
+                    slidesToSlide={1}
+                    swipeable
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls={`${section}-${index}-content`}
-                    id={`${section}-${index}-header`}
-                  >
-                    <Typography>{item.question}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>{item.answer}</Typography>
-                  </AccordionDetails>
-                </Accordion>
-              ))}
-            </div>
-          ))}
-        </div>
-      </Container>
-      <Footer />
-    </Box>
-  );
-};
+                    {gachacards.map((gacha) => (
+                        <GachaCard
+                            title={gacha.title}
+                            describe={gacha.describe}
+                            img={gacha.img}
+                            key={gacha.id}
+                            star={gacha.star}
+                        />
+                    ))}
+                </Carousel>
+                <Box sx={{ textAlign: 'center' }}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleTestYourLuck}
+                        sx={{ my: 2 }}
+                    >
+                        Test your luck
+                    </Button>
+                </Box>
+            </Box>
+            {enlargedCard && <div className="overlay" onClick={handleOverlayClick} />}
+            console.log(findNearestCard);
+            <Footer sx={{ flexShrink: 0 }} />
+        </Box>
+    );
+}
 
-export default FAQ;
+export default ResponsiveCarousel;

@@ -4,18 +4,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { navLinks } from "../constants/index";
+import { navLinks, gachacards } from "../constants/index";
 import '../index.css';
 import { Box, Button, CardActionArea, CardActions, Checkbox } from '@mui/material';
 import WebcamCapture from './webcam';
 import getIMG from '../utils/getIMG';
+import getGACHA from '../utils/getGACHA';
+import StarIcon from '@mui/icons-material/Star';
 
 
 function MenuCard(props) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       if (props.link === navLinks[i].link) {
         navLinks[i].current = true;
       }
@@ -143,7 +145,37 @@ function ProblemCardWebCam(props) {
   );
 };
 
+function GachaCard(props) {
+  const image = getGACHA(props.img);
+  console.log(image);
+
+  return (
+    <Card sx={{ position: 'relative', width: 300, height: 400 }}>
+         {image &&
+          <CardMedia
+            component="img"
+            image={image}
+            alt={props.title}
+            sx={{ width: '100%', height: '100%' }}
+          />
+          }
+        <Box
+            sx={{
+                position: 'absolute',
+                left: 10,
+                top: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+            }}
+        >
+            {Array.from({ length: props.star }).map((_, index) => (
+                <StarIcon key={index} sx={{ color: 'yellow', marginBottom: 1 }} />
+            ))}
+        </Box>
+    </Card>
+);
+}
 
 
-
-export {MenuCard, ProblemCard, ProblemCardWebCam};
+export {MenuCard, ProblemCard, ProblemCardWebCam, GachaCard};
