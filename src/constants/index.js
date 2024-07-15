@@ -16,7 +16,7 @@ const navLinks = [
       title: 'Ichi finds a way to your home',
       describe: 'Do not underestimate Ichi. He can literally find a way to your home. You better not complain about his problems.',
       star: 5,
-      image: 'ichi.png',
+      image: '../assets/cardIMG/ichi.png',
     }
   ]
   

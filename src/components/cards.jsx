@@ -55,6 +55,7 @@ function ProblemCard(props) {
   const handleClick = () => {
     window.open(props.link, '_blank');
   };
+  console.log(image)
 
   function handleCheckbox() {
     status[props.id] = !(isChecked);
@@ -147,7 +148,6 @@ function ProblemCardWebCam(props) {
 
 function GachaCard(props) {
   const image = getGACHA(props.img);
-  console.log(image);
 
   return (
     <Card sx={{ position: 'relative', width: 300, height: 400 }}>
