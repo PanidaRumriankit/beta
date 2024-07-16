@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { gachacards } from '../constants/index';
+// import { gachacards } from '../constants/index';
 import { Box, Button } from '@mui/material';
 import { GachaCard } from './cards';
 import IMAGES from '../assets/images';

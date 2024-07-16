@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { navLinks, gachacards } from "../constants/index";
+import { navLinks } from "../constants/index";
 import '../index.css';
 import { Box, Button, CardActionArea, CardActions, Checkbox } from '@mui/material';
 import WebcamCapture from './webcam';
