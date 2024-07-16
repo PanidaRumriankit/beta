@@ -13,21 +13,15 @@ function ResponsiveCarousel() {
     const [autoPlay, setAutoPlay] = useState(true);
     const [enlargedCard, setEnlargedCard] = useState(null);
 
-    // const toggleAutoPlay = () => {
-    //     setAutoPlay(!autoPlay);
-    // };
-
     const handleTestYourLuck = () => {
-        // Find the nearest card logic here
         const nearestCardId = findNearestCard();
         setAutoPlay(false);
         setEnlargedCard(nearestCardId);
     };
 
     const findNearestCard = () => {
-        // For simplicity, we just return the first card's id.
-        // In a real scenario, you would implement logic to find the actual nearest card
-        return problems[0].id;
+        // Logic to find the nearest card
+        return gachacards[0].id;
     };
 
     const handleOverlayClick = () => {
@@ -37,14 +31,16 @@ function ResponsiveCarousel() {
 
     const current_page = "/Gachapon";
 
+    const nearestCard = gachacards.find(card => card.id === enlargedCard);
+
     return (
         <Box
             id="gachapon"
-            sx={() => ({
+            sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100vh',
-            })}
+            }}
             className="pt-16"
         >
             <video
@@ -121,13 +117,14 @@ function ResponsiveCarousel() {
                     swipeable
                 >
                     {gachacards.map((gacha) => (
-                        <GachaCard
-                            title={gacha.title}
-                            describe={gacha.describe}
-                            img={gacha.img}
-                            key={gacha.id}
-                            star={gacha.star}
-                        />
+                        <Box key={gacha.id}>
+                            <GachaCard
+                                title={gacha.title}
+                                describe={gacha.describe}
+                                img={gacha.img}
+                                star={gacha.star}
+                            />
+                        </Box>
                     ))}
                 </Carousel>
                 <Box sx={{ textAlign: 'center' }}>
@@ -141,8 +138,18 @@ function ResponsiveCarousel() {
                     </Button>
                 </Box>
             </Box>
-            {enlargedCard && <div className="overlay" onClick={handleOverlayClick} />}
-            console.log(findNearestCard);
+            {enlargedCard && (
+                <div className="overlay" onClick={handleOverlayClick}>
+                    <div className="enlarged-card-container">
+                        <GachaCard
+                            title={nearestCard.title}
+                            describe={nearestCard.describe}
+                            img={nearestCard.img}
+                            star={nearestCard.star}
+                        />
+                    </div>
+                </div>
+            )}
             <Footer sx={{ flexShrink: 0 }} />
         </Box>
     );
