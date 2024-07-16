@@ -1,27 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-// import { gachacards } from '../constants/index';
+import { gachacards } from '../constants/index';
 import { Box, Button } from '@mui/material';
 import { GachaCard } from './cards';
 import IMAGES from '../assets/images';
 import Navbars from './Navbars';
 import Footer from './Footer';
 import './Gachapon.css';
+import getIMG from '../utils/getIMG';
 
 function ResponsiveCarousel() {
     const [autoPlay, setAutoPlay] = useState(true);
     const [enlargedCard, setEnlargedCard] = useState(null);
+    const buttonRef = useRef(null);
+    const cardRefs = useRef([]);
+
+    useEffect(() => {
+        cardRefs.current = cardRefs.current.slice(0, gachacards.length);
+    }, [gachacards.length]);
 
     const handleTestYourLuck = () => {
-        const nearestCardId = findNearestCard();
-        setAutoPlay(false);
-        setEnlargedCard(nearestCardId);
+        if (buttonRef.current && cardRefs.current.length > 0) {
+            const nearestCardId = findNearestCard();
+            setAutoPlay(false);
+            setEnlargedCard(nearestCardId);
+        }
     };
 
     const findNearestCard = () => {
-        // Logic to find the nearest card
-        return gachacards[0].id;
+        const buttonRect = buttonRef.current.getBoundingClientRect();
+        let nearestCardId = null;
+        let minDistance = Infinity;
+
+        cardRefs.current.forEach((cardRef, index) => {
+            if (cardRef) {
+                const cardRect = cardRef.getBoundingClientRect();
+                const distance = Math.hypot(
+                    cardRect.left - buttonRect.left,
+                    cardRect.top - buttonRect.top
+                );
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearestCardId = gachacards[index].id;
+                }
+            }
+        });
+
+        return nearestCardId;
     };
 
     const handleOverlayClick = () => {
@@ -116,8 +142,8 @@ function ResponsiveCarousel() {
                     slidesToSlide={1}
                     swipeable
                 >
-                    {gachacards.map((gacha) => (
-                        <Box key={gacha.id}>
+                    {gachacards.map((gacha, index) => (
+                        <Box key={gacha.id} ref={el => cardRefs.current[index] = el}>
                             <GachaCard
                                 title={gacha.title}
                                 describe={gacha.describe}
@@ -132,6 +158,7 @@ function ResponsiveCarousel() {
                         variant="contained"
                         color="primary"
                         onClick={handleTestYourLuck}
+                        ref={buttonRef}
                         sx={{ my: 2 }}
                     >
                         Test your luck
@@ -141,12 +168,11 @@ function ResponsiveCarousel() {
             {enlargedCard && (
                 <div className="overlay" onClick={handleOverlayClick}>
                     <div className="enlarged-card-container">
-                        <GachaCard
-                            title={nearestCard.title}
-                            describe={nearestCard.describe}
-                            img={nearestCard.img}
-                            star={nearestCard.star}
-                        />
+                        <img src={getIMG(nearestCard.img)} alt={nearestCard.title} />
+                            <div>
+                                <h1>{nearestCard.title}</h1>
+                                <p>{nearestCard.describe}</p>
+                            </div>
                     </div>
                 </div>
             )}

@@ -1,7 +1,7 @@
 const navLinks = [
   { name: "Problems", link: "/Problemspage", current: false },
   { name: "FAQ", link: "/FAQ", current: false },
-  // { name: "Gacha", link: "/Gachapon", current: false },
+  { name: "Gacha", link: "/Gachapon", current: false },
   { name: "Contacts", link: "/Contacts", current: false },
 ];
 
@@ -21,10 +21,128 @@ const gachacards = [
   { id: 1,
     title: 'Ichi finds a way to your home',
     describe: 'Do not underestimate Ichi. He can literally find a way to your home. You better not complain about his problems.',
+    star: 3,
+    img: 'ichi.png',
+  },
+  {
+    id: 2,
+    title: "assasin's pete",
+    describe: '',
+    star: 4,
+    img: 'assasin_pete.png',
+  },
+  {
+    id: 3,
+    title: "You found a rare pokemon",
+    describe: 'เหี้ย',
+    star: 3,
+    img: 'hia.png',
+  },
+
+  {
+    id: 4,
+    title: "You found a Legendary Ichi",
+    describe: 'รูปอันเก่าแก่ของอิชิตอนม.ต้น',
     star: 5,
-    image: '../assets/cardIMG/ichi.png',
-  }
-]
+    img: 'smileyichi.png',
+  },
+
+  {
+    id: 5,
+    title: "Banana's Pure",
+    describe: 'จากนี้ไปจะมีกล้วย',
+    star: 5,
+    img: 'pure_banana.png',
+  },
+
+  {
+    id: 6,
+    title: "Cyber Pasu",
+    describe: '2077',
+    star: 4,
+    img: 'ske_punk.png',
+  },
+
+  {
+    id: 7,
+    title: "Curious Pasu",
+    describe: 'Huh?',
+    star: 3,
+    img: 'wdym.png',
+  },
+
+  {
+    id: 8,
+    title: "Prem Thinking",
+    describe: 'Huh?',
+    star: 4,
+    img: 'prem_thinking.png',
+  },
+
+  {
+    id: 9,
+    title: "BOO!",
+    describe: 'UWAHHHHH SCARY',
+    star: 5,
+    img: 'putter_jumpscare.png',
+  },
+
+  {
+    id: 10,
+    title: "Peanut happi",
+    describe: 'Please be happy.',
+    star: 3,
+    img: 'peanut.png',
+  },
+
+  {
+    id: 11,
+    title: "Kulapant",
+    describe: '...Wait, Who is Kulapant Pimsaman?',
+    star: 3,
+    img: 'sticker.png',
+  },
+
+  {
+    id: 12,
+    title: "Peanut Happi",
+    describe: 'English or Spanish',
+    star: 3,
+    img: 'happy.png',
+  },
+
+  {
+    id: 13,
+    title: "SKE Duck",
+    describe: 'BEHOLD! Professor Duck is here!!!',
+    star: 4,
+    img: 'prof_duck.png',
+  },
+
+  {
+    id: 14,
+    title: "Speed Coding",
+    describe: 'BEHOLD! Professor Duck is here!!!',
+    star: 3,
+    img: 'speed.png',
+  },
+
+  {
+    id: 15,
+    title: "Thump Up",
+    describe: 'Goodjob',
+    star: 4,
+    img: 'thumpup.png',
+  },
+
+  {
+    id: 16,
+    title: "Pure and Safe",
+    describe: 'Who said Pure and Safe??? Are they really PURE and SAFE?',
+    star: 3,
+    img: 'Pure_and_Safe.png',
+  },
+];
 
 const problems = [
   { title: "print()",
@@ -604,4 +722,4 @@ const elab_exercise_source_code = [
   elab_exercise_source_code;
   for_sos14;
   
-  export { navLinks, slides, problems };
+  export { navLinks, slides, problems, gachacards };

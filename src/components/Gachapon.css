@@ -11,11 +11,30 @@
 
 .enlarged-card-container {
     position: fixed;
+    display: grid;
+    grid-template-areas:
+    'menu main main main'
+    'menu footer footer footer';
+    gap: 10px;
+    width: 700px;
+    padding: 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 11;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-area: menu;
+    color: white;
+}
+
+.enlarged-card-container img {
+    grid-area: menu;
+    width: 400px;
+}
+
+.enlarged-card-container h1 {
+    grid-area: main;
+}
+
+.enlarged-card-container p {
+    grid-area: footer;
 }
