@@ -21,24 +21,10 @@ const gachacards = [
   { id: 1,
     title: 'Ichi finds a way to your home',
     describe: 'Do not underestimate Ichi. He can literally find a way to your home. You better not complain about his problems.',
-    star: 3,
-    img: 'ichi.png',
-  },
-  {
-    id: 2,
-    title: "assasin's pete",
-    describe: '',
-    star: 4,
-    img: 'assasin_pete.png',
-  },
-  {
-    id: 3,
-    title: "You found a rare pokemon",
-    describe: 'เหี้ย',
-    star: 3,
-    img: 'hia.png',
+    star: 5,
+    image: '../assets/cardIMG/ichi.png',
   }
-];
+]
 
 const problems = [
   { title: "print()",
@@ -602,20 +588,20 @@ const elab_exercise_source_code = [
 
 
   
-]
-
-const for_sos14 = [
-/*Hi, My junior for_sos14 const is used for store cloneable Elab code. 
-If SOS14 is coming and you have no idea how to write Elab problems. You can use these Elab links to see my Elab codes by cloning it.
-However, don't modifly my code at elab_exercise_source_code only modifly your copy code.*/
-
- 
-
-
-
-];
-
-elab_exercise_source_code;
-for_sos14;
-
-export { navLinks, slides, problems, gachacards };
+  ]
+  
+  const for_sos14 = [
+  /*Hi, My junior for_sos14 const is used for store cloneable Elab code. 
+  If SOS14 is coming and you have no idea how to write Elab problems. You can use these Elab links to see my Elab codes by cloning it.
+  However, don't modifly my code at elab_exercise_source_code only modifly your copy code.*/
+  
+   
+  
+  
+  
+  ];
+  
+  elab_exercise_source_code;
+  for_sos14;
+  
+  export { navLinks, slides, problems };
