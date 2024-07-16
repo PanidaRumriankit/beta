@@ -37,7 +37,123 @@ const gachacards = [
     describe: 'เหี้ย',
     star: 3,
     img: 'hia.png',
-  }
+  },
+
+  {
+    id: 4,
+    title: "You found a Legendary Ichi",
+    describe: 'รูปอันเก่าแก่ของอิชิตอนม.ต้น',
+    star: 5,
+    img: 'smileyichi.png',
+  },
+
+  {
+    id: 5,
+    title: "Banana's Pure",
+    describe: 'จากนี้ไปจะมีกล้วย',
+    star: 5,
+    img: 'pure_banana.png',
+  },
+
+  {
+    id: 6,
+    title: "Cyber Pasu",
+    describe: '2077',
+    star: 4,
+    img: 'ske_punk.png',
+  },
+
+  {
+    id: 7,
+    title: "Curious Pasu",
+    describe: 'Huh?',
+    star: 3,
+    img: 'wdym.png',
+  },
+
+  {
+    id: 8,
+    title: "Curious Pasu",
+    describe: 'Huh?',
+    star: 3,
+    img: 'wdym.png',
+  },
+
+  {
+    id: 9,
+    title: "Prem Thinking",
+    describe: 'Huh?',
+    star: 4,
+    img: 'prem_thinking.png',
+  },
+
+  {
+    id: 10,
+    title: "BOO!",
+    describe: 'UWAHHHHH SCARY',
+    star: 5,
+    img: 'putter_jumpscare.png',
+  },
+
+  {
+    id: 11,
+    title: "Peanut happi",
+    describe: 'Please be happy.',
+    star: 3,
+    img: 'peanut.png',
+  },
+
+  {
+    id: 12,
+    title: "Kulapant",
+    describe: '...Wait, Who is Kulapant Pimsaman?',
+    star: 3,
+    img: 'sticker.png',
+  },
+
+  {
+    id: 13,
+    title: "Peanut Happi",
+    describe: 'English or Spanish',
+    star: 3,
+    img: 'happy.png',
+  },
+
+  {
+    id: 14,
+    title: "SKE Duck",
+    describe: 'BEHOLD! Professor Duck is here!!!',
+    star: 4,
+    img: 'prof_duck.png',
+  },
+
+  {
+    id: 15,
+    title: "Speed Coding",
+    describe: 'BEHOLD! Professor Duck is here!!!',
+    star: 3,
+    img: 'speed.png',
+  },
+
+  {
+    id: 16,
+    title: "Thump Up",
+    describe: 'Goodjob',
+    star: 4,
+    img: 'thumpup.png',
+  },
+
+  {
+    id: 17,
+    title: "Pure and Safe",
+    describe: 'APPLE PLEASE ADD THE DESCRIPTION',
+    star: 3,
+    img: 'Pure_and_Safe.png',
+  },
+
+
+
+
 ];
 
 const problems = [
