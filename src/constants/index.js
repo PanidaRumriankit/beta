@@ -548,6 +548,14 @@ const navLinks = [
       id: 32
     },
   
+    { title: "(Extra) Banana...again",
+      describe: "Develop a program that converts lists-strings.",
+      day: 3,
+      link: "https://elabsheet.org/elab/taskpads/change/yek5dl8eui/vcz8kszztc/",
+      img: "rubber.png.png",
+      id: 33
+    },
+  
     {
       title: "Module",
       day: 3,
@@ -569,9 +577,6 @@ const navLinks = [
       id: 35
     },
   
-  
-  
-    
   ]
   
   const for_sos14 = [
