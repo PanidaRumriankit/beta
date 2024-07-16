@@ -1,7 +1,7 @@
 const navLinks = [
   { name: "Problems", link: "/Problemspage", current: false },
   { name: "FAQ", link: "/FAQ", current: false },
-  { name: "Gacha", link: "/Gachapon", current: false },
+  // { name: "Gacha", link: "/Gachapon", current: false },
   { name: "Contacts", link: "/Contacts", current: false },
 ];
 
