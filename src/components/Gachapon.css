@@ -13,8 +13,8 @@
     position: fixed;
     display: grid;
     grid-template-areas:
-    'menu main main main'
-    'menu footer footer footer';
+    'menu main'
+    'menu footer';
     gap: 10px;
     width: 700px;
     padding: 10px;
@@ -22,13 +22,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 11;
-    grid-area: menu;
     color: white;
 }
 
 .enlarged-card-container img {
     grid-area: menu;
-    width: 400px;
+    width: 200px;
 }
 
 .enlarged-card-container h1 {
@@ -38,3 +37,22 @@
 .enlarged-card-container p {
     grid-area: footer;
 }
+
+/* @media (max-width: 1024px) {
+    .enlarged-card-container {
+        position: fixed;
+        display: grid;
+        grid-template-areas:
+        'menu'
+        'main'
+        'footer';
+        gap: 10px;
+        width: 300px;
+        padding: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 11;
+        color: white;
+    }
+} */

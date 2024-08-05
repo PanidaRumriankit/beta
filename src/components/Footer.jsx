@@ -28,7 +28,7 @@ export default function Footer() {
                 window.open('https://discord.gg/ecZyTjqBqy', '_blank');
                 break;
             case 'github':
-                window.open('https://github.com/PanidaRumriankit/SOS13', '_blank');
+                window.open('https://github.com/PanidaRumriankit/beta', '_blank');
                 break;
             default:
                 break;
